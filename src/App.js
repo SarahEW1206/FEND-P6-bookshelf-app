@@ -25,6 +25,8 @@ class BooksApp extends React.Component {
       this.setState({ books })
     })
 
+
+
   }
 
   render() {
@@ -39,7 +41,7 @@ class BooksApp extends React.Component {
         )} />
         <Route path='/search' render={() => (
           <SearchPage
-            books={this.state.books}
+            handleChange={this.changeShelf}
           />
         )} />
       </div>
