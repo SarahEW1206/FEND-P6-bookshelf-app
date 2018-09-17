@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Book from './Book'
+import Shelf from './Shelf'
 
 class MainPage extends Component {
 
@@ -12,26 +12,20 @@ class MainPage extends Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <div className="bookshelf">
-                            <h2 className="bookshelf-title">Currently Reading</h2>
-                            <ol className="books-grid">
-                                {
-                                    this.props.books
-                                        .filter(book => book.shelf === 'currentlyReading')
-                                        .map(book => (
-                                            <li>
-                                                <Book
-                                                    book={book}
-                                                    handleChange={this.props.handleChange}
-                                                    currentShelf="currentlyReading"
-                                                />
-                                            </li>
-                                        )
-                                        )
-                                }
-                            </ol>
-                        </div>
-                        <div className="bookshelf">
+                        <Shelf
+                            books={this.props.books}
+                            handleChange={this.props.handleChange}
+                            currentShelf="currentlyReading" />
+                        <Shelf
+                            books={this.props.books}
+                            handleChange={this.props.handleChange}
+                            currentShelf="wantToRead" />
+                        <Shelf
+                            books={this.props.books}
+                            handleChange={this.props.handleChange}
+                            currentShelf="read" />
+
+                        {/* <div className="bookshelf">
                             <h2 className="bookshelf-title">Want to Read</h2>
                             <ol className="books-grid">
                                 {
@@ -68,7 +62,7 @@ class MainPage extends Component {
                                         )
                                 }
                             </ol>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="open-search">
