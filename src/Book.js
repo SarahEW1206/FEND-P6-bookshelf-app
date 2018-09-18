@@ -12,7 +12,29 @@ class Book extends Component {
 
         return (
             <div className="book">
+                {this.props.isSearch &&
+                    <div className="book-title">
+
+                        {currentShelf === 'currentlyReading' &&
+                            <p className="library-status">Currently Reading</p>
+                        }
+
+                        {currentShelf === 'wantToRead' &&
+                            <p className="library-status">Want to Read</p>
+                        }
+
+                        {currentShelf === 'read' &&
+                            <p className="library-status">Read</p>
+                        }
+
+                        {currentShelf === 'none' &&
+                            <p className="library-status">None</p>
+                        }
+
+                    </div>
+                }
                 <div className="book-top">
+
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${thumbImage}")` }}></div>
                     <div className="book-shelf-changer">
                         <select

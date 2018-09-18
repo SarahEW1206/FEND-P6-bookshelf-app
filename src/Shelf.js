@@ -33,6 +33,7 @@ class Shelf extends Component {
                                         book={book}
                                         handleChange={this.props.handleChange}
                                         currentShelf={this.props.currentShelf}
+                                        isMain={this.props.isMain}
                                     />
                                 </li>
                             )

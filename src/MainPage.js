@@ -17,16 +17,19 @@ class MainPage extends Component {
                             books={this.props.books}
                             handleChange={this.props.handleChange}
                             currentShelf="currentlyReading"
+                            isMain={this.props.isMain}
                         />
                         <Shelf
                             books={this.props.books}
                             handleChange={this.props.handleChange}
                             currentShelf="wantToRead"
+                            isMain={this.props.isMain}
                         />
                         <Shelf
                             books={this.props.books}
                             handleChange={this.props.handleChange}
                             currentShelf="read"
+                            isMain={this.props.isMain}
                         />
                     </div>
                 </div>
