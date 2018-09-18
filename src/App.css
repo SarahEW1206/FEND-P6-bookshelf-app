@@ -105,7 +105,7 @@ body, .app {
 
 .library-status {
   font-size: 12px;
-  color: teal;
+  font-weight: bold;
   border-bottom: 1px solid #dedede;
 }
 
@@ -177,6 +177,26 @@ body, .app {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* Book Detail Page*/
+
+.book-detail-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px auto 0 auto;
+  max-width: 800px;
+}
+
+.book-detail-status {
+  display: flex;
+  align-items: center;
+}
+
+.reading-status-heading {
+  margin-right: 10px;
 }
 
 

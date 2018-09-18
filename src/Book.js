@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Book extends Component {
 
@@ -10,25 +11,28 @@ class Book extends Component {
         let thumbImage = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail :
             ''
 
+        let path = `books/${book.id}`
+
         return (
+
             <div className="book">
                 {this.props.isSearch &&
                     <div className="book-title">
 
                         {currentShelf === 'currentlyReading' &&
-                            <p className="library-status">Currently Reading</p>
+                            <p className="library-status" style={{ color: 'orange' }}>Currently Reading</p>
                         }
 
                         {currentShelf === 'wantToRead' &&
-                            <p className="library-status">Want to Read</p>
+                            <p className="library-status" style={{ color: 'purple' }}>Want to Read</p>
                         }
 
                         {currentShelf === 'read' &&
-                            <p className="library-status">Read</p>
+                            <p className="library-status" style={{ color: 'green' }}>Read</p>
                         }
 
                         {currentShelf === 'none' &&
-                            <p className="library-status">None</p>
+                            <p className="library-status" style={{ color: 'black' }}>None</p>
                         }
 
                     </div>
@@ -51,6 +55,7 @@ class Book extends Component {
                 </div>
                 <div className="book-title">{book.title}</div>
                 <div className="book-authors">{book.authors}</div>
+                <Link to={path}>Info</Link>
             </div>
         )
     }
