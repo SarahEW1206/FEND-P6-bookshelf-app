@@ -28,7 +28,7 @@ class Shelf extends Component {
                         books
                             .filter(book => book.shelf === currentShelf)
                             .map(book => (
-                                <li>
+                                <li key={book.id}>
                                     <Book
                                         book={book}
                                         handleChange={this.props.handleChange}

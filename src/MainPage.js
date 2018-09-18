@@ -16,15 +16,18 @@ class MainPage extends Component {
                         <Shelf
                             books={this.props.books}
                             handleChange={this.props.handleChange}
-                            currentShelf="currentlyReading" />
+                            currentShelf="currentlyReading"
+                        />
                         <Shelf
                             books={this.props.books}
                             handleChange={this.props.handleChange}
-                            currentShelf="wantToRead" />
+                            currentShelf="wantToRead"
+                        />
                         <Shelf
                             books={this.props.books}
                             handleChange={this.props.handleChange}
-                            currentShelf="read" />
+                            currentShelf="read"
+                        />
                     </div>
                 </div>
                 <div className="open-search">
@@ -39,3 +42,5 @@ class MainPage extends Component {
 }
 
 export default MainPage
+
+

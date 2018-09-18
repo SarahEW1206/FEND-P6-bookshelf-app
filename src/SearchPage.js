@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
-import escapeRegExp from 'escape-string-regexp'
 import Book from './Book.js'
 
 class SearchPage extends Component {
@@ -20,6 +19,7 @@ class SearchPage extends Component {
         this.setState({ query: '' })
     }
 
+
     updateSearchedBooks = (query) => {
         if (query) {
             BooksAPI.search(query).then((searched) => {
@@ -27,14 +27,13 @@ class SearchPage extends Component {
                     this.setState({ searched: [] })
                 } else {
                     this.setState({ searched })
+
                 }
             })
         } else {
             this.setState({ searched: [] })
         }
     }
-
-
 
 
 
@@ -60,16 +59,26 @@ class SearchPage extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {
-                            searched
-                                .map(searchedBook =>
-                                    (< li key={searchedBook.id} >
+                            searched.map(searchedBook => {
+
+                                let shelf = 'none'
+                                this.props.books.map(book => (
+                                    book.id === searchedBook.id ?
+                                        shelf = book.shelf : ''
+                                )
+
+                                )
+
+                                return (
+                                    < li key={searchedBook.id} >
                                         <Book
                                             book={searchedBook}
                                             handleChange={this.props.handleChange}
+                                            currentShelf={shelf}
                                         />
                                     </li>
-                                    )
                                 )
+                            })
                         }
                     </ol>
                 </div>
