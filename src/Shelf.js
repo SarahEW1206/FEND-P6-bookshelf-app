@@ -8,6 +8,8 @@ class Shelf extends Component {
 
     render() {
         const { books, currentShelf } = this.props
+
+        console.log(books)
         return (
             <div className="bookshelf">
 
