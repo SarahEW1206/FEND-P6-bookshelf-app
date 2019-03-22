@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ShelfStatus from "./ShelfStatus";
+import PropTypes from "prop-types";
 
 function Book({ book, currentShelf, isSearch, handleChange }) {
   let thumbImage = book.imageLinks ? book.imageLinks.thumbnail : "";
@@ -44,5 +45,11 @@ function Book({ book, currentShelf, isSearch, handleChange }) {
     </div>
   );
 }
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  currentShelf: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  isSearch: PropTypes.bool.isRequired
+};
 
 export default Book;
