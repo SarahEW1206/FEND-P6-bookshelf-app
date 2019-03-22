@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
+import ShelfStatus from "./ShelfStatus";
 
 class BookPage extends Component {
   state = {
@@ -47,21 +48,7 @@ class BookPage extends Component {
               <p className="reading-status-heading">
                 <strong>Reading Status:</strong>
               </p>
-              {this.state.info.shelf === "currentlyReading" && (
-                <p style={{ color: "orange" }}>Currently Reading</p>
-              )}
-
-              {this.state.info.shelf === "wantToRead" && (
-                <p style={{ color: "purple" }}>Want to Read</p>
-              )}
-
-              {this.state.info.shelf === "read" && (
-                <p style={{ color: "green" }}>Read</p>
-              )}
-
-              {this.state.info.shelf === "none" && (
-                <p style={{ color: "black" }}>None</p>
-              )}
+              <ShelfStatus shelf={this.state.info.shelf} />
             </div>
             <p>
               <strong>Description:</strong> {this.state.info.description}
