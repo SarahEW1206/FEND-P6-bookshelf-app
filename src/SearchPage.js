@@ -71,7 +71,7 @@ class SearchPage extends Component {
                     book={searchedBook}
                     handleChange={this.props.handleChange}
                     currentShelf={shelf}
-                    isSearch={this.props.isSearch}
+                    isSearch
                   />
                 </li>
               );

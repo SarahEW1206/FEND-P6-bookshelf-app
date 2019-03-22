@@ -23,7 +23,6 @@ function Shelf({ books, currentShelf, handleChange, isMain }) {
                 book={book}
                 handleChange={handleChange}
                 currentShelf={currentShelf}
-                isMain={isMain}
               />
             </li>
           ))}

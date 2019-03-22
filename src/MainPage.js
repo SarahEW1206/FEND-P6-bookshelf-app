@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Shelf from "./Shelf";
+import PropTypes from "prop-types";
 
-function MainPage({ books, isMain, handleChange }) {
+function MainPage({ books, handleChange }) {
   return (
     <div className="list-books">
       <div className="list-books-title">
@@ -14,19 +15,16 @@ function MainPage({ books, isMain, handleChange }) {
             books={books}
             handleChange={handleChange}
             currentShelf="currentlyReading"
-            isMain={isMain}
           />
           <Shelf
             books={books}
             handleChange={handleChange}
             currentShelf="wantToRead"
-            isMain={isMain}
           />
           <Shelf
             books={books}
             handleChange={handleChange}
             currentShelf="read"
-            isMain={isMain}
           />
         </div>
       </div>
@@ -36,5 +34,10 @@ function MainPage({ books, isMain, handleChange }) {
     </div>
   );
 }
+
+MainPage.propTypes = {
+  books: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired
+};
 
 export default MainPage;

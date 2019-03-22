@@ -48,8 +48,7 @@ function Book({ book, currentShelf, isSearch, handleChange }) {
 Book.propTypes = {
   book: PropTypes.object.isRequired,
   currentShelf: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  isSearch: PropTypes.bool.isRequired
+  handleChange: PropTypes.func.isRequired
 };
 
 export default Book;
