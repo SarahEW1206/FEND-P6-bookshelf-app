@@ -1,18 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import Book from "./Book";
+import ShelfStatus from "./ShelfStatus";
 
-function Shelf({ books, currentShelf, handleChange, isMain }) {
+function Shelf({ books, currentShelf, handleChange }) {
   return (
     <div className="bookshelf">
-      {currentShelf === "currentlyReading" && (
-        <h2 className="bookshelf-title">Currently Reading</h2>
-      )}
-
-      {currentShelf === "wantToRead" && (
-        <h2 className="bookshelf-title">Want to Read</h2>
-      )}
-
-      {currentShelf === "read" && <h2 className="bookshelf-title">Read</h2>}
+      <ShelfStatus shelf={currentShelf} />
 
       <ol className="books-grid">
         {books

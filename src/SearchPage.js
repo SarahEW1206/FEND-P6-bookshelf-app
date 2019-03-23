@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as BooksAPI from "./BooksAPI";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import Book from "./Book.js";
 
 class SearchPage extends Component {
@@ -32,8 +34,8 @@ class SearchPage extends Component {
   };
 
   render() {
-    const { searched } = this.state;
-    const { query } = this.state;
+    const { searched, query } = this.state;
+    const { books, handleChange } = this.props;
 
     return (
       <div className="search-books">
@@ -57,9 +59,9 @@ class SearchPage extends Component {
             {searched.map(searchedBook => {
               let shelf = "none";
 
-              /*Map through the books that are already on shelves if we get a match based on id, we will get the shelf status from higher order state and assign it to the equivalent book this.state.searched */
+              /*Map through the books that are already on shelves if we get a match based on id, we will get the shelf status from higher order state and assign it to the equivalent book in this.state.searched */
 
-              this.props.books.map(book =>
+              books.map(book =>
                 book.id === searchedBook.id ? (shelf = book.shelf) : null
               );
 
@@ -69,7 +71,7 @@ class SearchPage extends Component {
                 <li key={searchedBook.id}>
                   <Book
                     book={searchedBook}
-                    handleChange={this.props.handleChange}
+                    handleChange={handleChange}
                     currentShelf={shelf}
                     isSearch
                   />
@@ -82,5 +84,10 @@ class SearchPage extends Component {
     );
   }
 }
+
+SearchPage.propTypes = {
+  books: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired
+};
 
 export default SearchPage;

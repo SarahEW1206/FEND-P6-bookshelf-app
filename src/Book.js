@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ShelfStatus from "./ShelfStatus";
 import PropTypes from "prop-types";
 
 function Book({ book, currentShelf, isSearch, handleChange }) {
   let thumbImage = book.imageLinks ? book.imageLinks.thumbnail : "";
-
   let path = `books/${book.id}`;
 
   return (
